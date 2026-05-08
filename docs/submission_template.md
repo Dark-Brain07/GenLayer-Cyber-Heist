@@ -10,7 +10,7 @@ GenLayer Cyber Heist: Decentralized Social Engineering Simulator
 I have developed a full-stack DApp and deployed 3 distinct Intelligent Contracts that strictly utilize GenVM's native consensus model via Equivalence Principles. 
 
 **1. Live DApp: GenLayer Cyber Heist**
-- **URL:** [Insert your Vercel/Netlify URL here]
+- **URL:** [https://genlayercyberheist.vercel.app](https://genlayercyberheist.vercel.app)
 - Built a modern, cyberpunk glassmorphism UI using React/Vite that integrates directly with the `genlayer-js` SDK.
 - Users can interact with the **AI Firewall**, a subjective game where they must use social engineering payloads to trick the AI into granting them access to the mainframe.
 
