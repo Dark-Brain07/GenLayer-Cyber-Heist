@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Terminal, ShieldAlert, CheckCircle2, LockOpen } from 'lucide-react';
-import { createClient } from 'genlayer-js';
+import { createClient, createAccount, generatePrivateKey } from 'genlayer-js';
 import { testnetBradbury } from 'genlayer-js/chains';
 
 // Set up the GenLayer client for the Bradbury Testnet
+const account = createAccount(generatePrivateKey());
 const client = createClient({
   chain: testnetBradbury,
+  account: account,
 });
 
 const AI_FIREWALL_ADDRESS = '0x916C5E1f96Fa7598e96324372997D2D0A09874D6';
@@ -23,25 +25,7 @@ function App() {
     setStatus('EVALUATING');
     
     try {
-      // Create account (for testnet simulation)
-      const account = client.createRandomAccount();
-
-      // Call the Intelligent Contract
-      const hash = await client.writeContract({
-        address: AI_FIREWALL_ADDRESS,
-        functionName: 'attempt_breach',
-        args: [hackerAlias, prompt],
-        account: account,
-        value: 0n,
-      });
-
-      // Wait for the transaction to finalize and get result
-      const receipt = await client.waitForTransactionReceipt({ hash });
-      
-      // We will parse the result string from the contract's return data.
-      // (For now we just call it again as a read call to get the specific return string, 
-      // since transaction receipts don't always contain the plain string in a friendly way without parsing logs)
-      
+      // Call the Intelligent Contract's read method to get the AI's evaluation
       const result = await client.readContract({
         address: AI_FIREWALL_ADDRESS,
         functionName: 'attempt_breach',
@@ -50,7 +34,7 @@ function App() {
 
       const resultString = String(result);
 
-      if (resultString.includes('ACCESS GRANTED')) {
+      if (resultString.toUpperCase().includes('ACCESS GRANTED')) {
         setStatus('GRANTED');
         setResponse(resultString);
       } else {
