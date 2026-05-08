@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Terminal, ShieldAlert, CheckCircle2, LockOpen } from 'lucide-react';
 import { createClient, createAccount, generatePrivateKey } from 'genlayer-js';
-import { testnetBradbury } from 'genlayer-js/chains';
+import { studionet } from 'genlayer-js/chains';
 
-// Set up the GenLayer client for the Bradbury Testnet
+// Set up the GenLayer client for Studio Network (where contracts are deployed)
 const account = createAccount(generatePrivateKey());
 const client = createClient({
-  chain: testnetBradbury,
+  chain: studionet,
   account: account,
 });
 
