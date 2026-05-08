@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Terminal, ShieldAlert, CheckCircle2, LockOpen } from 'lucide-react';
 import { createClient } from 'genlayer-js';
-import { simulator } from 'genlayer-js/chains';
+import { testnetBradbury } from 'genlayer-js/chains';
 
-// Set up the GenLayer client for the Simulator (Bradbury Testnet)
+// Set up the GenLayer client for the Bradbury Testnet
 const client = createClient({
-  chain: simulator,
+  chain: testnetBradbury,
 });
 
 const AI_FIREWALL_ADDRESS = '0x916C5E1f96Fa7598e96324372997D2D0A09874D6';
