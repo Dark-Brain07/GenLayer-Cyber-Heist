@@ -25,7 +25,7 @@ All contracts in this suite are production-ready and correctly wrap `gl.nondet.e
 - This article clearly explains the problem with raw LLM calls breaking consensus and explicitly walks developers through the canonical solution of using `gl.eq_principle.prompt_comparative` to achieve Optimistic Democracy. 
 
 **Code Repository:**
-[Insert your GitHub link here]
+https://github.com/Dark-Brain07/GenLayer-Cyber-Heist.git
 
 **Educational Article:**
 [Insert link to your published Medium Post here]
